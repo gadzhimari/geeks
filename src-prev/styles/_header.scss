@@ -1,0 +1,159 @@
+header {
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    width: 100%;
+    padding: 40px 0;
+    z-index: 99;
+    position: relative;
+    // transition: opacity .5s;
+    // opacity: 1;
+}
+
+.menu-top {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.menu-top a {
+    margin: 0 5px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: -0.17px;
+    transition: all .2s;
+}
+
+.menu-top a:first-child {
+    margin-left: 0;
+}
+
+.menu-top a:last-child {
+    margin-right: 0;
+}
+
+.menu-top a.active,
+.menu-top a:hover,
+.menu-top a:active,
+.menu-top a:focus {
+    opacity: .4;
+}
+
+.nav--center {
+    width: 260px;
+    text-align: center;
+
+    a{
+        opacity: 1 !important;
+
+    }
+}
+
+.nav--left,
+.nav--right {
+width: 260px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.content--entry {
+    padding-top: 120px;
+}
+
+.logo {
+    width: 59px;
+    height: 11px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(./images/logo.png);
+}
+
+.home .logo {
+    background-image: url(./images/logo-w.png);
+}
+
+.home {
+    #open-menu {
+        svg {
+            fill: #fff;
+        }
+    }
+}
+
+.home .menu-top a {
+    color: #fff;
+}
+
+.black {
+    .home .menu-top a {
+        color: #000;
+    }
+
+    .home .logo{
+        background-image: url(./images/logo.png);
+    }
+
+    .slide--text {
+        color: #000;
+
+        a {
+            color: #fff;
+
+            &:before {
+                background-color: #000;
+            }
+        }
+    }
+
+    .slider-switch {
+        &:after {
+            background-color: #000;
+        }
+
+        &.active {
+            border: 1px solid #000;
+        }
+    }
+
+    .highlight {
+        border: 1px solid #000;
+    }
+
+    .slider-switch span {
+        color: #000;
+    }
+
+    #open-menu {
+        svg {
+            fill: #000;
+        }
+    }
+}
+
+.game {
+    .menu-top a {
+        color: #fff;
+    }
+
+    #open-menu svg {
+        fill: #fff;
+    }
+
+    .logo {
+        background-image: url(./images/logo-w.png);
+    }
+}
+
+.menu-top {
+    .block-subtitle.black {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    display: none;
+    height: 98px;
+}
