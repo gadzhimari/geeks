@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
-class Header extends React.Component {
-
+class Header extends Component {
     componentDidMount() {
         let link = window.location.pathname.split('/');
         link.shift();

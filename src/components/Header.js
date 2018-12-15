@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-class Header extends React.Component {
+import Logo from './logo';
 
+class Header extends React.Component {
     componentDidMount() {
         let link = window.location.pathname.split('/');
         link.shift();
@@ -80,7 +81,13 @@ class Header extends React.Component {
                         </div>
                         <div className="nav--center">
                             <Link to="/" className="link-home">
-                                <span onClick={this.handleClick.bind(this)} data-class="home" className="logo"></span>
+                              <span
+                                onClick={this.handleClick.bind(this)}
+                                data-class="home"
+                                className="logo"
+                              >
+                                <Logo />
+                              </span>
                             </Link>
                         </div>
                         <div className="nav--right">

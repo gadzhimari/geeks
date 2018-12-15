@@ -1,19 +1,13 @@
-// TYPO
-// %fz99 {
-//     font-size: 99px;
-//     font-size: 6.9vw;
-// }
-
 @mixin fz99 {
     font-size: 99px;
     font-size: 6.9vw;
+    letter-spacing: -3px;
 }
 
 
 .slider {
     position: relative;
     width: 100%;
-    // min-height: 100%;
     min-height: 650px;
     height: 100vh;
     margin-top: -98px;
@@ -106,20 +100,6 @@
         display: none !important;
     }
 }
-
-// @keyframes btn-prev{
-//     0% {
-//         left: -144px;
-//     }
-
-//     50% {
-//         left: -100%;
-//     }
-
-//     100% {
-//         left: -144px;
-//     }
-// }
 
 .control-item {
     position: absolute;
