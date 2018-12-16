@@ -207,7 +207,6 @@ export function setDotNavigation() {
 
     function disableHighlight() {
         const linkItemActive = document.querySelector('.slider-switch.active');
-        const linkItem = document.querySelector('.slider-switch').getBoundingClientRect();
 
         const coords = {
             width: window.getComputedStyle(linkItemActive, ':before').getPropertyValue('width'),

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import Config from '../config';
-import MemberPopup from '../components/MemberPopup';
 import showdown from 'showdown';
 
 const converter = new showdown.Converter();
@@ -85,9 +83,7 @@ class About extends Component {
       document.querySelector('header').classList.add('hide');
 
       const popupElement = document.querySelector('#member-popup');
-      const aboutBlock = document.querySelector('.aboutTrigger');
       const aboutTextBlock = document.querySelector('.member--about');
-      const topOfAboutBlock = getElemDistance(aboutBlock);
       const topOfAboutTextBlock = getElemDistance(aboutTextBlock);
 
       function fixNav() {
@@ -347,7 +343,7 @@ class About extends Component {
                                       <div className="experience--meta">
                                         {link !== "" &&
                                           <div className="experience--link">
-                                            <a href={link} target="_blank">{link}</a>
+                                            <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
                                           </div>
                                         }
                                         {position !== "" &&

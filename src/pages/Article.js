@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import showdown from 'showdown';
 import $ from "jquery";
-import slick from 'slick-carousel';
 import Config from '../config';
 
 const dateformat = require('dateformat');

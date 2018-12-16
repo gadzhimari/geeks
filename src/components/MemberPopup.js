@@ -98,8 +98,6 @@ class MemberPopup extends Component {
                 </div>
             </div>
         );
-
-        return (<h2 className="MemberPopup-title"></h2>);
     }
 }
 

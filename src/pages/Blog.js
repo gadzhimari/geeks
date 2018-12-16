@@ -96,7 +96,7 @@ class Blog extends Component {
                 </form>
               </div>
               <div className="pagination">
-                <ReactPaginate previousLabel={"previous"}
+                <ReactPaginate
                   nextLabel={""}
                   previousLabel={""}
                   previousLinkClassName={"prev"}

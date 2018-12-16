@@ -81,13 +81,10 @@ class Header extends React.Component {
                         </div>
                         <div className="nav--center">
                             <Link to="/" className="link-home">
-                              <span
+                              <Logo
                                 onClick={this.handleClick.bind(this)}
                                 data-class="home"
-                                className="logo"
-                              >
-                                <Logo />
-                              </span>
+                              />
                             </Link>
                         </div>
                         <div className="nav--right">

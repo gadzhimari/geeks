@@ -47,20 +47,14 @@ header {
 
 .nav--left,
 .nav--right {
-width: 260px;
-display: flex;
-align-items: center;
-justify-content: space-between;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .content--entry {
     padding-top: 120px;
-}
-
-.logo {
-    width: 59px;
-    height: 11px;
-    display: inline-block;
 }
 
 .home .logo {
