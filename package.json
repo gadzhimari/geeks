@@ -52,6 +52,7 @@
     "react-pose": "^3.3.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "react-slick": "^0.23.2",
     "resolve": "1.8.1",
     "showdown": "^1.8.7",
     "slick-carousel": "^1.8.1",
@@ -67,7 +68,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "build-css": "node-sass src/styles/ -o src/"
+    "build-css": "node-sass src/styles/ -o src/",
+    "precommit": "pretty-quick --staged"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -120,7 +122,11 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "node-sass": "^4.9.4",
+    "prettier": "^1.15.3",
+    "pretty-quick": "^1.8.0",
     "sass-loader": "^7.1.0"
   }
 }
