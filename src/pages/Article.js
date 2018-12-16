@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import showdown from 'showdown';
+import format from 'date-fns/format';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import createElementFromHTML from '../utils/markdown';
 import Config from '../config';
 
 const settings = {
@@ -19,22 +20,12 @@ const settings = {
   adaptiveHeight: true,
 };
 
-const dateformat = require('dateformat');
-const converter = new showdown.Converter();
-
-const createElementFromHTML = (htmlString) => {
-  return converter.makeHtml(htmlString.trim());
-};
-
 class Article extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      article: {},
-      nexPost: null,
-    };
-  }
+  state = {
+    loading: true,
+    article: {},
+    nexPost: null,
+  };
 
   async componentDidMount() {
     let response = await fetch(
@@ -53,9 +44,10 @@ class Article extends Component {
   async getNextPostLink() {
     let response = await fetch(`${Config.host}/articles/`);
     let posts = await response.json();
+    const { article } = this.state;
 
     posts.forEach((post, index) => {
-      if (post.id === this.state.article.id) {
+      if (post.id === article.id) {
         const currentPostIndex = index;
 
         if (posts[currentPostIndex + 1]) {
@@ -70,11 +62,12 @@ class Article extends Component {
   }
 
   render() {
-    if (!this.state.loading) {
-      var ms = Date.parse(this.state.article.createdAt);
-      var formatedDate = dateformat(ms, 'dd.mm.yyyy');
-      const listBeforeSlider = this.state.article.list_before_slider.split('#');
-      const listAfterSlider = this.state.article.list_after_slider.split('#');
+    const { article, nextPost, loading } = this.state;
+
+    if (!loading) {
+      const articleDate = format(article.createdAt, 'DD.M.YYYY');
+      const listBeforeSlider = article.list_before_slider.split('#');
+      const listAfterSlider = article.list_after_slider.split('#');
       listBeforeSlider.shift();
       listAfterSlider.shift();
 
@@ -82,20 +75,20 @@ class Article extends Component {
         <div className="article">
           <div className="article--wrap">
             <div className="article__information">
-              <h1 className="article-title">{this.state.article.title}</h1>
-              <span className="article-created">{formatedDate}</span>
+              <h1 className="article-title">{article.title}</h1>
+              <time datetime={article.createdAt} className="article__created">
+                {articleDate}
+              </time>
             </div>
             <div className="article-container">
               <div className="article--sidebar">
-                <div className="block-subtitle">
-                  {this.state.article.excerpt}
-                </div>
+                <div className="block-subtitle">{article.excerpt}</div>
               </div>
               <div className="article--content">
                 <div
                   className="article--description"
                   dangerouslySetInnerHTML={{
-                    __html: createElementFromHTML(this.state.article.text),
+                    __html: createElementFromHTML(article.text),
                   }}
                 />
                 <div className="article--list">
@@ -112,9 +105,9 @@ class Article extends Component {
             </div>
           </div>
 
-          {this.state.article.slider.length > 0 && (
+          {article.slider.length > 0 && (
             <Slider {...settings}>
-              {this.state.article.slider.map((slide, index) => {
+              {article.slider.map((slide, index) => {
                 return (
                   <div key={index} className="article--slide">
                     <img src={Config.host + slide.url} alt={slide.name} />
@@ -142,7 +135,7 @@ class Article extends Component {
               </div>
               <div className="article--content">
                 <div className="article--description">
-                  <h3>{this.state.article.title_before_list}</h3>
+                  <h3>{article.title_before_list}</h3>
                 </div>
                 <div className="article--list small">
                   {listAfterSlider.map((listItem, index) => {
@@ -168,11 +161,11 @@ class Article extends Component {
                     </div>
                   </div>
                   <div className="article--content">
-                    {this.state.nextPost && (
+                    {nextPost && (
                       <div className="article--next">
                         <span>Next article</span>
-                        <Link to={`/blog/${this.state.nextPost.id}`}>
-                          <span>{this.state.nextPost.title}</span>
+                        <Link to={`/blog/${nextPost.id}`}>
+                          <span>{nextPost.title}</span>
                           <svg
                             width="128px"
                             height="111px"

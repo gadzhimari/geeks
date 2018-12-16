@@ -896,7 +896,7 @@
     position: relative;
     margin-top: 21px;
 
-    span {
+    time {
         position: absolute;
         left: -148px;
         top: 4px;
@@ -1037,7 +1037,7 @@
         max-width: 600px;
     }
 
-    .article-created {
+    .article__created {
         font-size: 13px;
         letter-spacing: -0.007em;
     }

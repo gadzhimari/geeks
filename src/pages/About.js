@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
+
+import createElementFromHTML from '../utils/markdown';
 import Config from '../config';
-import showdown from 'showdown';
-
-const converter = new showdown.Converter();
-
-const createElementFromHTML = (htmlString) => {
-  return converter.makeHtml(htmlString.trim());
-};
 
 class About extends Component {
   constructor(props) {

@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import showdown from 'showdown';
 
-const converter = new showdown.Converter();
-
-const createElementFromHTML = (htmlString) => {
-  return converter.makeHtml(htmlString.trim());
-};
+import createElementFromHTML from '../utils/markdown';
 
 class SlideText extends Component {
   componentDidMount() {
