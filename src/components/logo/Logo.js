@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ReactComponent as Icon } from './logo.svg';
 
@@ -14,11 +14,7 @@ class Logo extends Component {
     const { color, onClick, ...restProps } = this.props;
 
     return (
-      <span
-        className="logo"
-        onClick={onClick}
-        {...restProps}
-      >
+      <span className="logo" onClick={onClick} {...restProps}>
         <Icon fill={color} />
       </span>
     );

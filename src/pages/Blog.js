@@ -13,23 +13,26 @@ class Blog extends Component {
       loading: true,
       articles: [],
       offset: 0,
-      postsPerPage: 6
-    }
+      postsPerPage: 6,
+    };
   }
 
   async loadCommentsFromServer() {
-    let response = await fetch(`${Config.host}/articles?_limit=${this.state.postsPerPage}&_start=${this.state.postsPerPage * this.state.offset}`);
+    let response = await fetch(
+      `${Config.host}/articles?_limit=${this.state.postsPerPage}&_start=${this
+        .state.postsPerPage * this.state.offset}`,
+    );
 
     if (!response.ok) {
-      return
+      return;
     }
 
     let articles = await response.json();
 
     this.setState({
       loading: false,
-      articles: articles
-    })
+      articles: articles,
+    });
   }
 
   async componentDidMount() {
@@ -37,10 +40,10 @@ class Blog extends Component {
     const allArticles = await all.json();
 
     this.setState({
-      pageCount: Math.ceil(allArticles.length / this.state.postsPerPage)
-    })
+      pageCount: Math.ceil(allArticles.length / this.state.postsPerPage),
+    });
 
-    this.loadCommentsFromServer()
+    this.loadCommentsFromServer();
   }
 
   handlePageClick = (data) => {
@@ -65,13 +68,19 @@ class Blog extends Component {
               <div className="blog--list">
                 {this.state.articles.map((article, index) => {
                   var ms = Date.parse(article.createdAt);
-                  var formatedDate = dateformat(ms, "dd.mm.yyyy");
+                  var formatedDate = dateformat(ms, 'dd.mm.yyyy');
                   return (
                     <div className="article" key={article.id}>
                       <Link to={`/blog/${article.id}`}>
-                        {article.article_featured_image !== null &&
-                          <div className="article--image" style={{ backgroundImage: `url(${Config.host + article.article_featured_image.url})` }}></div>
-                        }
+                        {article.article_featured_image !== null && (
+                          <div
+                            className="article--image"
+                            style={{
+                              backgroundImage: `url(${Config.host +
+                                article.article_featured_image.url})`,
+                            }}
+                          />
+                        )}
                         <div className="article--header">
                           <h2>{article.title}</h2>
                           <span>{formatedDate}</span>
@@ -89,34 +98,45 @@ class Blog extends Component {
             <div className="blog--footer">
               <div className="subscribe">
                 <div className="block-title">Подписаться</div>
-                <div className="block-subtitle">Ежемесячная подборка крутых<br />новостей из игровой индустрии</div>
+                <div className="block-subtitle">
+                  Ежемесячная подборка крутых
+                  <br />
+                  новостей из игровой индустрии
+                </div>
                 <form action="" className="subscribe-form">
-                  <input type="text" placeholder="Email" name="subscribe-email" required />
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    name="subscribe-email"
+                    required
+                  />
                   <button type="submit" className="svg-arrow" />
                 </form>
               </div>
               <div className="pagination">
                 <ReactPaginate
-                  nextLabel={""}
-                  previousLabel={""}
-                  previousLinkClassName={"prev"}
-                  nextLinkClassName={"next"}
+                  nextLabel={''}
+                  previousLabel={''}
+                  previousLinkClassName={'prev'}
+                  nextLinkClassName={'next'}
                   breakLabel={<span>..</span>}
-                  breakClassName={"break-me"}
+                  breakClassName={'break-me'}
                   pageCount={this.state.pageCount}
                   marginPagesDisplayed={1}
                   pageRangeDisplayed={3}
                   onPageChange={this.handlePageClick}
-                  containerClassName={"pagination-wrap"}
-                  subContainerClassName={"pages pagination"}
-                  activeClassName={"active"} /></div>
+                  containerClassName={'pagination-wrap'}
+                  subContainerClassName={'pages pagination'}
+                  activeClassName={'active'}
+                />
+              </div>
             </div>
           </div>
         </div>
       );
     }
 
-    return (<h2 className="GameList-title">Waiting for API...</h2>);
+    return <h2 className="GameList-title">Waiting for API...</h2>;
   }
 }
 

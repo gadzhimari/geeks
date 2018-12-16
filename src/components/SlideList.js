@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import posed from 'react-pose';
 import Config from '../config';
 
@@ -9,18 +9,18 @@ class SlideList extends Component {
 
     this.state = {
       loading: true,
-      products: []
-    }
+      products: [],
+    };
   }
 
   async componentDidMount() {
     let response = await fetch(`${Config.host}/slides`);
     if (!response.ok) {
-      return
+      return;
     }
 
-    let slides = await response.json()
-    this.setState({ loading: false, slides: slides })
+    let slides = await response.json();
+    this.setState({ loading: false, slides: slides });
   }
 
   render() {
@@ -34,7 +34,10 @@ class SlideList extends Component {
                 <div className="SlideList-slide" key={slide.id}>
                   <Link to={`/slides/${slide.id}`}>
                     <h3>{slide.title}</h3>
-                    <img src={`${Config.host + slide.image_main.url}`} alt={slide.title} />
+                    <img
+                      src={`${Config.host + slide.image_main.url}`}
+                      alt={slide.title}
+                    />
                   </Link>
                 </div>
               );
@@ -44,7 +47,7 @@ class SlideList extends Component {
       );
     }
 
-    return (<h2 className="SlideList-title">Waiting for API...</h2>);
+    return <h2 className="SlideList-title">Waiting for API...</h2>;
   }
 }
 
