@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import format from 'date-fns/format';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
@@ -32,7 +33,11 @@ class Article extends Component {
       `${Config.host}/articles/${this.props.match.params.id}`,
     );
     let data = await response.json();
-
+    console.log('Data fetch ', data);
+    let data2 = await axios.get(
+      `${Config.host}/articles/${this.props.match.params.id}`,
+    );
+    console.log('Axios data ', data2);
     this.setState({
       article: data,
       loading: false,
