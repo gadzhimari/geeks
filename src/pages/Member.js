@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import Config from '../config';
+import { Members } from '../api';
 
 class Member extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loading: true, member: {} };
-  }
+  state = { loading: true, member: {} };
 
   async componentDidMount() {
-    let response = await fetch(
-      `${Config.host}/members/${this.props.match.params.id}`,
-    );
-    let data = await response.json();
+    const { data } = await Members.getMember(this.props.match.params.id);
+
     this.setState({
       loading: false,
       member: data,

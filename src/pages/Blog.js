@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import format from 'date-fns/format';
 
-import Config from '../config';
+import { Posts } from '../api';
+import { DOMAIN_URL } from '../config';
 
 class Blog extends Component {
   state = {
@@ -13,19 +14,15 @@ class Blog extends Component {
     postsPerPage: 6,
   };
 
-  async loadCommentsFromServer() {
+  async loadPosts() {
     const { postsPerPage, offset } = this.state;
 
-    const response = await fetch(
-      `${Config.host}/articles?_limit=${postsPerPage}&_start=${postsPerPage *
-        offset}`,
-    );
+    const options = {
+      _limit: postsPerPage,
+      _start: postsPerPage * offset,
+    };
 
-    if (!response.ok) {
-      return;
-    }
-
-    let articles = await response.json();
+    const { data: articles } = await Posts.getPosts(options);
 
     this.setState({
       loading: false,
@@ -34,22 +31,21 @@ class Blog extends Component {
   }
 
   async componentDidMount() {
-    const all = await fetch(`${Config.host}/articles`);
-    const allArticles = await all.json();
+    const { data: posts } = await Posts.getPosts();
     const { postsPerPage } = this.state;
 
     this.setState({
-      pageCount: Math.ceil(allArticles.length / postsPerPage),
+      pageCount: Math.ceil(posts.length / postsPerPage),
     });
 
-    this.loadCommentsFromServer();
+    this.loadPosts();
   }
 
   handlePageClick = (data) => {
     let offset = data.selected;
 
     this.setState({ offset: offset }, () => {
-      this.loadCommentsFromServer();
+      this.loadPosts();
     });
   };
 
@@ -77,14 +73,14 @@ class Blog extends Component {
                           <div
                             className="article--image"
                             style={{
-                              backgroundImage: `url(${Config.host +
+                              backgroundImage: `url(${DOMAIN_URL +
                                 article.article_featured_image.url})`,
                             }}
                           />
                         )}
                         <div className="article--header">
                           <h2>{article.title}</h2>
-                          <time datetime={article.createdAt}>
+                          <time dateTime={article.createdAt}>
                             {articleDate}
                           </time>
                         </div>

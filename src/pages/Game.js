@@ -4,7 +4,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-import Config from '../config';
+import { DOMAIN_URL } from '../config';
+import { Games } from '../api';
 import createElementFromHTML from '../utils/markdown';
 
 const settings = {
@@ -29,14 +30,11 @@ class Game extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch(
-      `${Config.host}/games/${this.props.match.params.id}`,
-    );
-    let game = await response.json();
+    const { data: game } = await Games.getGame(this.props.match.params.id);
 
     this.setState({
       loading: false,
-      game: game,
+      game,
     });
 
     // this.updateHeroHeight();
@@ -55,8 +53,7 @@ class Game extends Component {
   // }
 
   async getNextPostLink() {
-    let response = await fetch(`${Config.host}/games/`);
-    let games = await response.json();
+    const { data: games } = await Games.getGames();
 
     games.forEach((game, index) => {
       if (game.id === this.state.game.id) {
@@ -74,8 +71,7 @@ class Game extends Component {
   }
 
   async getPrevPostLink() {
-    let response = await fetch(`${Config.host}/games/`);
-    let games = await response.json();
+    const { data: games } = await Games.getGames();
 
     games.forEach((game, index) => {
       if (game.id === this.state.game.id) {
@@ -117,7 +113,7 @@ class Game extends Component {
         <div className="game">
           <div
             className="hero"
-            style={{ backgroundImage: `url(${Config.host + header_image})` }}
+            style={{ backgroundImage: `url(${DOMAIN_URL + header_image})` }}
           >
             <div className="hero-container">
               <div className="hero--wrap">
@@ -231,7 +227,7 @@ class Game extends Component {
               {this.state.game.slider.map((slide, index) => {
                 return (
                   <div key={index} className="article--slide">
-                    <img src={Config.host + slide.url} alt={slide.name} />
+                    <img src={DOMAIN_URL + slide.url} alt={slide.name} />
                   </div>
                 );
               })}
@@ -253,7 +249,7 @@ class Game extends Component {
               />
             </div>
             <div className="game--text">
-              <img src={Config.host + after_slider_image} alt="" />
+              <img src={DOMAIN_URL + after_slider_image} alt="" />
             </div>
           </div>
 
@@ -263,7 +259,7 @@ class Game extends Component {
               {this.state.game.slider_2.map((slide, index) => {
                 return (
                   <div key={index} className="article--slide">
-                    <img src={Config.host + slide.url} alt={slide.name} />
+                    <img src={DOMAIN_URL + slide.url} alt={slide.name} />
                   </div>
                 );
               })}

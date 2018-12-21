@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import dragscroll from 'dragscroll';
 import Carousel from '../components/Carousel';
-import Config from '../config';
+import { DOMAIN_URL } from '../config';
+import { Games as GamesApi } from '../api';
 
 class Games extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      games: [],
-      transLeftOffset: 0,
-    };
-  }
+  state = {
+    loading: true,
+    games: [],
+    transLeftOffset: 0,
+  };
 
   sortByOrder(a, b) {
     if (a.order < b.order) return -1;
@@ -47,13 +44,9 @@ class Games extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch(`${Config.host}/games`);
-    if (!response.ok) {
-      return;
-    }
+    const { data: games } = await GamesApi.getGames();
 
-    let games = await response.json();
-    this.setState({ loading: false, games: games });
+    this.setState({ loading: false, games });
 
     function giveMeIntValOf(el) {
       return parseInt(el.replace('translateX(', '').replace('px)', ''), 10);
@@ -150,7 +143,7 @@ class Games extends Component {
                       <div
                         className="item--image"
                         style={{
-                          backgroundImage: `url(${Config.host +
+                          backgroundImage: `url(${DOMAIN_URL +
                             game.image.url})`,
                         }}
                       />

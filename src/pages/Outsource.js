@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import Config from '../config';
+
+import { Outsources as OutsourcesApi } from '../api';
+import { DOMAIN_URL } from '../config';
 
 class Outsources extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      outsources: [],
-    };
-  }
+  state = {
+    loading: true,
+    outsources: [],
+  };
 
   async componentDidMount() {
-    let response = await fetch(`${Config.host}/outsources`);
-    if (!response.ok) {
-      return;
-    }
+    const { data: outsources } = await OutsourcesApi.getOutsources();
 
-    let outsources = await response.json();
-    this.setState({ loading: false, outsources: outsources });
+    this.setState({ loading: false, outsources });
   }
 
   openGallery(e) {
@@ -31,7 +25,7 @@ class Outsources extends Component {
       });
 
     document.querySelector('#currentImage').src =
-      Config.host + this.state.outsources[index].image.url;
+      DOMAIN_URL + this.state.outsources[index].image.url;
     document.querySelector('.app').classList.add('active', 'show');
     document
       .querySelector(`.oursource--control .item[data-index="${index}"]`)
@@ -42,7 +36,7 @@ class Outsources extends Component {
     const index = e.currentTarget.dataset.index;
 
     document.querySelector('#currentImage').src =
-      Config.host + this.state.outsources[index].image.url;
+      DOMAIN_URL + this.state.outsources[index].image.url;
 
     document
       .querySelectorAll('.oursource--control .item')
@@ -90,7 +84,7 @@ class Outsources extends Component {
   }
 
   render() {
-    const outsources = this.state.outsources;
+    const { outsources } = this.state;
 
     console.log(outsources);
 
@@ -133,8 +127,7 @@ class Outsources extends Component {
                   key={outsource.id}
                   data-category={outsource.tag}
                   style={{
-                    backgroundImage: `url(${Config.host +
-                      outsource.image.url})`,
+                    backgroundImage: `url(${DOMAIN_URL + outsource.image.url})`,
                   }}
                   data-index={index}
                   onClick={this.openGallery.bind(this)}
@@ -184,7 +177,7 @@ class Outsources extends Component {
                       key={outsource.id}
                       data-category={outsource.tag}
                       style={{
-                        backgroundImage: `url(${Config.host +
+                        backgroundImage: `url(${DOMAIN_URL +
                           outsource.image.url})`,
                       }}
                       data-index={index}

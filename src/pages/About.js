@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import createElementFromHTML from '../utils/markdown';
-import Config from '../config';
+import { DOMAIN_URL } from '../config';
+import { Members } from '../api';
 
 class About extends Component {
   constructor(props) {
@@ -16,16 +17,11 @@ class About extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch(`${Config.host}/members`);
+    const { data: members } = await Members.getMembers();
 
-    if (!response.ok) {
-      return;
-    }
-
-    let members = await response.json();
     this.setState({
       loading: false,
-      members: members,
+      members,
     });
 
     document.querySelectorAll('.team-member a').forEach((element) => {
@@ -33,7 +29,7 @@ class About extends Component {
         const teamImage = document.querySelector('.team--image');
 
         element.addEventListener('mouseenter', (event) => {
-          let image = Config.host + element.dataset.image;
+          let image = DOMAIN_URL + element.dataset.image;
           teamImage.style.backgroundImage = `url(${image})`;
           teamImage.classList.add('show');
         });
@@ -47,15 +43,10 @@ class About extends Component {
 
   async showMember(e) {
     const id = e.currentTarget.dataset.id;
-    let response = await fetch(`${Config.host}/members/${id}`);
+    const { data: member } = await Members.getMember(id);
 
-    if (!response.ok) {
-      return;
-    }
-
-    let member = await response.json();
     this.setState({
-      member: member,
+      member,
     });
 
     this.setSkills();
@@ -264,7 +255,7 @@ class About extends Component {
                   <div
                     className="popup--bg"
                     style={{
-                      backgroundImage: `url(${Config.host +
+                      backgroundImage: `url(${DOMAIN_URL +
                         this.state.member.photo.url})`,
                     }}
                   />

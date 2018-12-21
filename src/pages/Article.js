@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import format from 'date-fns/format';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import { Posts } from '../api';
+import { DOMAIN_URL } from '../config';
 import createElementFromHTML from '../utils/markdown';
-import Config from '../config';
 
 const settings = {
   className: 'article--slider',
@@ -25,19 +25,12 @@ class Article extends Component {
   state = {
     loading: true,
     article: {},
-    nexPost: null,
+    nextPost: null,
   };
 
   async componentDidMount() {
-    let response = await fetch(
-      `${Config.host}/articles/${this.props.match.params.id}`,
-    );
-    let data = await response.json();
-    console.log('Data fetch ', data);
-    let data2 = await axios.get(
-      `${Config.host}/articles/${this.props.match.params.id}`,
-    );
-    console.log('Axios data ', data2);
+    const { data } = await Posts.getPost(this.props.match.params.id);
+
     this.setState({
       article: data,
       loading: false,
@@ -47,8 +40,7 @@ class Article extends Component {
   }
 
   async getNextPostLink() {
-    let response = await fetch(`${Config.host}/articles/`);
-    let posts = await response.json();
+    const { data: posts } = await Posts.getPosts();
     const { article } = this.state;
 
     posts.forEach((post, index) => {
@@ -81,7 +73,7 @@ class Article extends Component {
           <div className="article--wrap">
             <div className="article__information">
               <h1 className="article-title">{article.title}</h1>
-              <time datetime={article.createdAt} className="article__created">
+              <time dateTime={article.createdAt} className="article__created">
                 {articleDate}
               </time>
             </div>
@@ -115,7 +107,7 @@ class Article extends Component {
               {article.slider.map((slide, index) => {
                 return (
                   <div key={index} className="article--slide">
-                    <img src={Config.host + slide.url} alt={slide.name} />
+                    <img src={`${DOMAIN_URL}${slide.url}`} alt={slide.name} />
                   </div>
                 );
               })}

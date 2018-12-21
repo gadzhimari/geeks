@@ -10,17 +10,13 @@ import SlideVideo from '../components/SlideVideo';
 import SlideDefault from '../components/SlideDefault';
 import SlideControls from '../components/SlideControls';
 import SlideDots from '../components/SlideDots';
-import Config from '../config';
+import { Slides } from '../api';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      slides: [],
-    };
-  }
+  state = {
+    loading: true,
+    slides: [],
+  };
 
   sortByOrder(a, b) {
     if (a.order < b.order) return -1;
@@ -29,12 +25,8 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch(`${Config.host}/slides`);
-    if (!response.ok) {
-      return;
-    }
+    const { data: slides } = await Slides.getSlides();
 
-    let slides = await response.json();
     this.setState({
       loading: false,
       slides: slides.sort(this.sortByOrder),
