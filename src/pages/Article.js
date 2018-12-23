@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import { Posts } from '../api';
 import { DOMAIN_URL } from '../config';
 import createElementFromHTML from '../utils/markdown';
+import { Post } from '../components';
 
 const settings = {
   className: 'article--slider',
@@ -26,36 +27,43 @@ class Article extends Component {
     loading: true,
     article: {},
     nextPost: null,
+    total: 0,
+    current: 1,
+  };
+
+  handleNextClick = () => {
+    const { total, current, posts } = this.state;
+    const next = (current + 1) % total;
+
+    this.setState({
+      current: next,
+      nextPost: posts[next],
+    });
+  };
+
+  handlePrevClick = () => {
+    const { current, total, posts } = this.state;
+    const prev = (current + (total - 1)) % total;
+
+    this.setState({
+      current: prev,
+      nextPost: posts[prev],
+    });
   };
 
   async componentDidMount() {
-    const { data } = await Posts.getPost(this.props.match.params.id);
+    const { data: posts } = await Posts.getPosts();
+    const { data: article } = await Posts.getPost(this.props.match.params.id);
+
+    const filteredPosts = posts.filter((post) => post.id !== article.id);
 
     this.setState({
-      article: data,
+      article,
+      posts: filteredPosts,
+      nextPost: filteredPosts[0],
+      total: filteredPosts.length,
       loading: false,
     });
-
-    this.getNextPostLink();
-  }
-
-  async getNextPostLink() {
-    const { data: posts } = await Posts.getPosts();
-    const { article } = this.state;
-
-    posts.forEach((post, index) => {
-      if (post.id === article.id) {
-        const currentPostIndex = index;
-
-        if (posts[currentPostIndex + 1]) {
-          this.setState({
-            nextPost: posts[currentPostIndex + 1],
-          });
-        }
-      }
-    });
-
-    return false;
   }
 
   render() {
@@ -70,6 +78,13 @@ class Article extends Component {
 
       return (
         <div className="article">
+          <Post
+            post={article}
+            nextPost={nextPost}
+            onPrev={this.handlePrevClick}
+            onNext={this.handleNextClick}
+          />
+
           <div className="article--wrap">
             <div className="article__information">
               <h1 className="article-title">{article.title}</h1>

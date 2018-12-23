@@ -12,7 +12,7 @@ import Outsource from './pages/Outsource';
 import About from './pages/About';
 import Member from './pages/Member';
 import Header from './components/Header';
-import Logo from '../src/components/logo';
+import { Logo } from '../src/components';
 
 import './styles/index.scss';
 
