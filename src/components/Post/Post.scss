@@ -130,13 +130,17 @@ $root: '.Post';
     max-width: 1160px;
     margin: 0 auto;
     margin-top: 60px;
-    padding-top: 50px;
+    padding-top: 42px;
     border-top: 3px solid #000;
   }
 
   &__footerRow {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__footerCol {
+    width: 50%;
   }
 
   &__footerFeedback {

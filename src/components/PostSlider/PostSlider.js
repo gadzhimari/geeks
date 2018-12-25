@@ -21,10 +21,12 @@ class PostSlider extends Component {
 
     return (
       <div className={cn()}>
-        <span className={cn('subtitle')}>Next article</span>
-        <Link to={`${baseUrl}${post.id}`} className={cn('title')}>
-          {post.title}
-        </Link>
+        <div className={cn('content')}>
+          <span className={cn('subtitle')}>Next article</span>
+          <Link to={`${baseUrl}${post.id}`} className={cn('title')}>
+            {post.title}
+          </Link>
+        </div>
         <span className={cn('prev')} onClick={onPrev}>
           <LeftArrowIcon />
         </span>

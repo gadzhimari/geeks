@@ -1,0 +1,43 @@
+$root: '.PostSlider';
+
+#{$root} {
+  position: relative;
+  max-width: 530px;
+
+  &__content {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: -0.007em;
+  }
+
+  &__title {
+    display: flex;
+    font-size: 26px;
+    letter-spacing: -0.015em;
+    line-height: 29px;
+    text-decoration: none;
+    color: #000;
+    max-width: 400px;
+  }
+
+  &__prev,
+  &__next {
+    position: absolute;
+    bottom: 1px;
+    cursor: pointer;
+  }
+
+  &__prev {
+    left: 0;
+  }
+
+  &__next {
+    right: 0;
+  }
+}

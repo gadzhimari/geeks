@@ -78,19 +78,11 @@ class Post extends Component {
           </div>
           <div className={cn('footerCol')}>
             <PostSlider
-              post={post}
+              post={nextPost}
               onNext={onNext}
               onPrev={onPrev}
               baseUrl="/blog/"
             />
-            {nextPost && (
-              <div className={cn('next')}>
-                <span>Next article</span>
-                <Link to={`/blog/${nextPost.id}`}>
-                  <span>{nextPost.title}</span>
-                </Link>
-              </div>
-            )}
           </div>
         </div>
       </div>

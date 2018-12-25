@@ -187,22 +187,6 @@
         }
     }
 
-    .skills-description {
-        .article--list > div {
-            padding-left: 130px;
-        }
-
-        .article--list span {
-            left: 0;
-        }
-
-        .article--list {
-            border-bottom: 3px solid;
-            border-top: 3px solid;
-            padding: 60px 0;
-        }
-    }
-
     .info--name {
         margin-bottom: 40px;
     }
@@ -431,87 +415,6 @@
         height: 100px;
     }
 
-    // ARTICLE
-    .article {
-        .article-title  {
-            max-width: 365px;
-        }
-
-        .article--list {
-            margin-left: 60px;
-        }
-
-        .article-container {
-            flex-direction: column;
-        }
-
-        .article .article__information {
-            margin-bottom: 60px;
-        }
-
-        .article--sidebar {
-            margin-bottom: 60px;
-            max-width: 230px;
-        }
-
-        .article--content {
-            padding-left: 70px;
-        }
-
-        .article--description {
-            margin-left: 60px;
-        }
-
-        .article--content {
-            order: 1;
-        }
-
-        .article--sidebar.bottom {
-            order: 2;
-            align-items: flex-end;
-            flex-direction: row;
-            max-width: 100%;
-            margin-bottom: 0;
-            margin-top: 80px;
-
-            .block--social {
-                flex-direction: row;
-
-                a {
-                    margin-left: 40px;
-                }
-            }
-
-            .block-subtitle {
-                line-height: 1;
-                margin-right: 120px;
-            }
-        }
-
-        .article--next {
-            position: relative;
-
-            a span {
-                margin-right: 0;
-            }
-
-            svg {
-                bottom: -70px;
-                position: absolute;
-                right: 0;
-            }
-        }
-
-
-        .article--footer .container--entry {
-            padding-bottom: 50px;
-        }
-
-        .article--footer {
-            padding: 0 75px;
-        }
-    }
-
     // outsource
     .outsource {
         .item {
@@ -584,10 +487,6 @@
         margin-top: 2px;
     }
 
-    .skills-description .article--list {
-        padding: 30px 0;
-    }
-
     #member-popup .block-title {
         margin-top: 60px;
     }
@@ -628,14 +527,6 @@
         transform: none;
     }
 
-    .article--list {
-        font-size: 16px;
-    }
-
-    .skills-description .article--list > div {
-        padding-left: 60px;
-    }
-
     .experience--time {
         max-width: 105px;
         text-align: right;
@@ -644,16 +535,6 @@
     .experience--name {
         font-size: 18px;
         line-height: 1;
-    }
-
-    .popup-software {
-        .article--list {
-            font-size: 18px;
-
-            div {
-                margin-bottom: -6px;
-            }
-        }
     }
 
     // CONTACT
@@ -790,74 +671,18 @@
     // ARTICLE
 
     .article {
-        .article--content {
-        padding-left: 0;
-        }
-
-        .article--description {
-            margin-left: 0;
-        }
-
-        .article__information {
-            margin-bottom: 40px;
-            margin-top: 0;
-        }
-
         p {
             max-width: 100%;
         }
 
-        .footer--wrap {
-            flex-direction: column;
-            align-items: center;
-        }
-
         .block-subtitle.black {
             margin-bottom: 50px;
-        }
-
-        .article--next {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .article--next a span {
-            font-size: 18px;
-            line-height: 19px;
-            max-width: 100%;
-        }
-
-        .article--sidebar.bottom .block-subtitle {
-            line-height: 1;
-            margin-right: 0;
-            font-size: 18px;
-        }
-
-        .article--sidebar.bottom .block--social a {
-            margin-left: 28px;
-            font-size: 10px;
-        }
-
-        .article--sidebar.bottom {
-            justify-content: space-between;
-            margin-top: 32px;
-        }
-
-        .article-title {
-            font-size: 42px;
-            line-height: 39px;
         }
     }
 
     .app-content .container {
         padding: 0;
     }
-
-    .article .article--footer {
-        padding: 0 35px;
-    }
-
     // OUTSOURCE
 
     .slider-games--filter {
