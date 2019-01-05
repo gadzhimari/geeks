@@ -31,31 +31,9 @@ body {
     }
 }
 
-header {
-    opacity: 1;
-    transition: opacity .6s ease-in;
-
-    &.hide {
-        opacity: 0;
-    }
-}
-
 img {
     margin: 0;
     max-width: 100%;
-}
-
-.app-content>div:not(.slider) {
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-}
-
-#page:not(.home) {
-    .app-content {
-        // margin-top: 98px;
-    }
 }
 
 .align-right {

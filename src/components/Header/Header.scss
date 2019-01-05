@@ -1,0 +1,120 @@
+header {
+  width: 100%;
+  padding: 32px 0;
+  z-index: 99;
+  position: relative;
+  opacity: 1;
+  transition: opacity .6s ease-in;
+
+  &.hide {
+    opacity: 0;
+  }
+}
+
+.menu-top {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.menu-top a {
+    margin: 0 5px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: -0.17px;
+    transition: all .2s;
+}
+
+.menu-top a:first-child {
+    margin-left: 0;
+}
+
+.menu-top a:last-child {
+    margin-right: 0;
+}
+
+.menu-top a.active,
+.menu-top a:hover,
+.menu-top a:active,
+.menu-top a:focus {
+    opacity: .4;
+}
+
+.nav--left,
+.nav--right {
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav--center {
+  width: 260px;
+  text-align: center;
+
+  a {
+    opacity: 1 !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        opacity: 0;
+        z-index: -1;
+        padding: 0;
+        top: 0;
+        left: 0;
+        background-color: #fafafa;
+
+        .container {
+            padding: 0 75px;
+            height: 100%;
+        }
+    }
+
+  .menu-top, .nav--left, .nav--right {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .nav--left, .nav--right {
+    max-width: 300px;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+  .nav--center {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .nav--left, .nav--right {
+    max-width: 150px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  header {
+    padding: 2.2vw 0;
+  }
+
+  .nav--left, .nav--right {
+    width: 18vw;
+  }
+
+  .menu-top a {
+    font-size: 0.9vw;
+  }
+
+  .logo {
+    width: 4vw;
+    height: .75vw;
+    margin-left: 4vw;
+  }
+}

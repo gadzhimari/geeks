@@ -1818,7 +1818,6 @@
         min-width: 25vh;
     }
 
-
     .slide--text {
         h1 {
             @include fz99;
@@ -1837,23 +1836,6 @@
         max-width: 92vw;
     }
 
-    .menu-top a {
-        font-size: 0.9vw;
-    }
-
-    .nav--left, .nav--right {
-        width: 18vw;
-    }
-
-    header {
-        padding: 2.2vw 0;
-    }
-
-    .logo {
-        width: 4vw;
-        height: .75vw;
-        margin-left: 4vw;
-    }
 }
 
 // PRELOADER

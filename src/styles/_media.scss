@@ -4,39 +4,6 @@
         padding: 0 75px;
     }
 
-    header {
-        position: fixed;
-        height: 100vh;
-        width: 100%;
-        opacity: 0;
-        z-index: -1;
-        padding: 0;
-        top: 0;
-        left: 0;
-        background-color: #fafafa;
-
-        .container {
-            padding: 0 75px;
-            height: 100%;
-        }
-    }
-
-    .menu-top, .nav--left, .nav--right {
-        flex-direction: column;
-        width: 100%;
-        align-items: flex-start;
-    }
-
-    .nav--left, .nav--right {
-        max-width: 300px;
-        text-align: left;
-        margin: 0 auto;
-    }
-
-    .nav--center {
-        display: none;
-    }
-
     .menu-top {
         padding-top: 50px;
         padding-bottom: 50px;
@@ -441,10 +408,6 @@
 
     header .container {
         padding: 0 35px;
-    }
-
-    .nav--left, .nav--right {
-        max-width: 150px;
     }
 
     .slide--text {
