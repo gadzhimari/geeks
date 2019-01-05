@@ -1,0 +1,17 @@
+$container-width: 1440px;
+
+$breakpoint-s: 0;
+$breakpoint-m: 768px;
+$breakpoint-l: 1100px;
+
+$grid-columns: 20 !default;
+
+$grid-breakpoints: () !default;
+$grid-breakpoints: map-merge(
+  (
+    s: 0,
+    m: 768px,
+    l: 1100px,
+  ),
+  $grid-breakpoints
+);

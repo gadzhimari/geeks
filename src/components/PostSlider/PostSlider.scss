@@ -1,43 +1,87 @@
+@import '../../styles/_vars.scss';
+
 $root: '.PostSlider';
 
 #{$root} {
   position: relative;
-  max-width: 530px;
 
   &__content {
-    max-width: 350px;
+    max-width: 432px;
     margin: 0 auto;
+    text-align: center;
   }
 
   &__subtitle {
     display: inline-block;
-    margin-bottom: 14px;
+    margin-bottom: 21px;
     font-size: 12px;
     letter-spacing: -0.007em;
   }
 
   &__title {
     display: flex;
-    font-size: 26px;
+    font-size: 18px;
     letter-spacing: -0.015em;
-    line-height: 29px;
+    line-height: 21px;
     text-decoration: none;
     color: #000;
     max-width: 400px;
+    justify-content: center;
   }
 
   &__prev,
   &__next {
     position: absolute;
-    bottom: 1px;
+    bottom: -70px;
     cursor: pointer;
   }
 
   &__prev {
-    left: 0;
+    left: 62%;
   }
 
   &__next {
     right: 0;
+  }
+}
+
+@media screen and (min-width: $breakpoint-m) {
+  &__content {
+    text-align: left;
+  }
+
+  &__title {
+    justify-content: flex-start;
+  }
+
+  &__prev {
+    left: 51%;
+  }
+
+  &__prev,
+  &__next {
+    bottom: -78px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-l) {
+  #{$root} {
+    &__title {
+      font-size: 26px;
+      line-height: 29px;
+    }
+
+    &__subtitle {
+      margin-bottom: 14px;
+    }
+
+    &__prev,
+    &__next {
+      bottom: 1px;
+    }
+
+    &__prev {
+      left: 0;
+    }
   }
 }

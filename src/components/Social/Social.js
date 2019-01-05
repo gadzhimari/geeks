@@ -8,8 +8,8 @@ import './Social.scss';
 @cn('Social')
 class Social extends Component {
   static propTypes = {
-    title: PropTypes.object.isRequired,
-    showTitle: PropTypes.boolean,
+    title: PropTypes.string,
+    showTitle: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -24,12 +24,14 @@ class Social extends Component {
       <div className={cn()}>
         {showTitle && <span className={cn('title')}>{title}</span>}
         <div className={cn('list')}>
-          {SOCIAL_NETWORKS.map((network) => (
+          {SOCIAL_NETWORKS.map((network, index) => (
             <a
+              key={index}
               href={network.url}
               title={network.name}
               className={cn('item')}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {network.name}
             </a>
