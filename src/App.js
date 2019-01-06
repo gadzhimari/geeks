@@ -5,7 +5,7 @@ import posed, { PoseGroup } from 'react-pose';
 import Home from './pages/Home';
 import Games from './pages/Games';
 import Game from './pages/Game';
-import Blog from './pages/Blog';
+import { Blog } from './pages';
 import Article from './pages/Article';
 import Contact from './pages/Contact';
 import Outsource from './pages/Outsource';

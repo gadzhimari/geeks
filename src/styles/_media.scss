@@ -1,9 +1,5 @@
 @media only screen and (max-width: 768px) {
     // GENERAL
-    .app-content>div>.container {
-        padding: 0 75px;
-    }
-
     .menu-top {
         padding-top: 50px;
         padding-bottom: 50px;
@@ -297,91 +293,6 @@
         width: 100%;
     }
 
-    // BLOG
-    .blog-container {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .blog--sidebar {
-        max-width: 100%;
-    }
-
-    .blog--list {
-        margin-top: 120px;
-    }
-
-    .blog {
-        position: relative;
-    }
-
-    .subscribe {
-        position: absolute;
-        top: 0;
-        right: 75px;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .subscribe-form {
-        position: relative;
-        display: inline-block;
-        margin-top: 42px;
-        width: 100%;
-    }
-
-    .subscribe-form input {
-        max-width: 100%;
-    }
-
-    .block-subtitle {
-        br {
-            display: none;
-        }
-    }
-
-    .pagination-wrap {
-        padding: 0;
-        margin: 0 0 5px;
-        list-style-type: none;
-        display: flex;
-        margin-right: 0;
-        width: 100%;
-        justify-content: flex-end;
-        position: relative;
-        right: -30px;
-    }
-
-    .pagination {
-        position: absolute;
-        right: 0;
-        bottom: 90px;
-        width: 100%;
-        text-align: right;
-        padding: 0 75px;
-
-        .previous, .next {
-            position: absolute;
-            bottom: -50px;
-        }
-
-        li:first-child {
-            margin-left: -150px;
-            margin-right: 0;
-        }
-
-        li:last-child {
-            margin-right: 0;
-            margin-left: 0;
-            bottom: 3px;
-            right: 37px;
-        }
-    }
-
-    .blog--footer {
-        height: 100px;
-    }
-
     // outsource
     .outsource {
         .item {
@@ -393,10 +304,6 @@
 
 @media only screen and (max-width: 414px) {
     // GENERAL
-    .app-content > div > .container {
-        padding: 0 35px;
-    }
-
     // MENU
     .menu-top a {
         font-size: 26px;
@@ -583,14 +490,6 @@
     }
 
     // BLOG
-    .subscribe {
-        top: 76px;
-    }
-
-    .subscribe-form {
-        margin-top: 20px;
-    }
-
     .blog--list {
         margin-top: 150px;
     }
@@ -626,13 +525,7 @@
         max-width: 225px;
     }
 
-    .subscribe {
-        left: 35px;
-        right: auto;
-    }
-
     // ARTICLE
-
     .article {
         p {
             max-width: 100%;
@@ -643,11 +536,7 @@
         }
     }
 
-    .app-content .container {
-        padding: 0;
-    }
     // OUTSOURCE
-
     .slider-games--filter {
         display: flex;
         align-items: flex-start;

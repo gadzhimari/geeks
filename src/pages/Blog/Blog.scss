@@ -1,0 +1,88 @@
+@import '../../styles/_vars.scss';
+@import '../../styles/_mixins';
+
+$root: '.Blog';
+
+#{$root} {
+  &__headerWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+
+  &__subscribe {
+    &_position_top {
+      .Subscribe__title {
+        display: none;
+      }
+    }
+
+    &_position_bottom {
+      display: none;
+    }
+  }
+
+  &__pagination {
+    margin-top: 30px;
+  }
+
+  &__footer {
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-m) {
+  #{$root} {
+    &__header {
+      margin-top: 58px;
+    }
+
+    &__headerWrapper {
+      flex-direction: row;
+    }
+
+    &__title {
+      font-size: 56px;
+      line-height: 47px;
+
+      @include make-col(2, 8);
+    }
+
+    &__subscribe {
+      @include make-col(4, 8);
+      @include make-col-offset(2, 8);
+    }
+
+    &__posts {
+      margin-top: 56px;
+    }
+
+    &__pagination {
+      margin-top: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-l) {
+  #{$root} {
+    &__subscribe {
+      @include make-col(8, 8);
+      margin-left: 0;
+
+      &_position_top {
+        display: none;
+      }
+
+      &_position_bottom {
+        display: block;
+        margin-top: -88px;
+      }
+    }
+  }
+}

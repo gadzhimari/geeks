@@ -1,0 +1,61 @@
+@import '../../styles/_vars.scss';
+
+$root: '.Subscribe';
+
+#{$root} {
+  &__title {
+    margin-bottom: 12px;
+    font-size: 26px;
+    letter-spacing: -0.015em;
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    letter-spacing: -0.007em;
+    line-height: 20px;
+  }
+
+  &__form {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 7px 36px 7px 10px;
+    font-size: 18px;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  &__button {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 23px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background: url('./arrow.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: $breakpoint-m) {
+  #{$root} {
+    &__form {
+      max-width: none;
+      margin-top: 42px;
+    }
+
+    &__input {
+      max-width: 100%;
+    }
+  }
+}

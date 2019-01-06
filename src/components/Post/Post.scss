@@ -260,3 +260,9 @@ $root: '.Post';
     }
   }
 }
+
+@media screen and (min-width: $breakpoint-l) {
+  #{$root} {
+    margin-top: 70px;
+  }
+}
