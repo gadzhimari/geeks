@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import cn from 'cn-decorator';
 
-class Carousel extends React.Component {
+import './Carousel.scss';
+
+@cn('Carousel')
+class Carousel extends Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +17,6 @@ class Carousel extends React.Component {
     this.cRef = React.createRef();
   }
 
-  // mouse Down
   handleMouseDown = (e, data) => {
     const carousel = this.cRef.current;
 
@@ -109,10 +112,6 @@ class Carousel extends React.Component {
 
     const newOffset = this.giveMeIntValOf(carousel.firstChild.style.transform);
 
-    // console.log(this.state.transLeftOffset);
-    // console.log(newOffset);
-    // console.log((this.state.transLeftOffset !== null) && (this.state.transLeftOffset !== newOffset));
-
     if (
       this.state.transLeftOffset !== null &&
       this.state.transLeftOffset !== newOffset
@@ -120,13 +119,12 @@ class Carousel extends React.Component {
     }
   };
 
-  // helper Function
   giveMeIntValOf = (el) => {
     // extracting 20 from translateX(20px) and converting it to integer with parsInt
     return parseInt(el.replace('translateX(', '').replace('px)', ''), 10);
   };
 
-  render() {
+  render(cn) {
     const { _data, itemWidth, itemHeight, itemSideOffsets } = this.props;
 
     const cWrapperStyle = {
@@ -136,7 +134,7 @@ class Carousel extends React.Component {
 
     return (
       <div
-        className="carousel"
+        className={cn()}
         ref={this.cRef}
         onMouseDown={this.handleMouseDown}
         onMouseLeave={this.handleMouseLeave}
@@ -144,7 +142,7 @@ class Carousel extends React.Component {
         onMouseMove={this.handleMouseMove}
       >
         <div
-          className="cWrapper"
+          className={cn('wrapper')}
           style={{
             ...cWrapperStyle,
             transform: 'translateX(0px)',

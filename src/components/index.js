@@ -7,3 +7,4 @@ export { default as Social } from './Social';
 export { default as PostSlider } from './PostSlider';
 export { default as Header } from './Header';
 export { default as Subscribe } from './Subscribe';
+export { default as Carousel } from './Carousel';

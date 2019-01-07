@@ -20,7 +20,6 @@
     "date-fns": "^1.30.1",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
-    "dragscroll": "0.0.8",
     "eslint": "5.6.0",
     "eslint-config-react-app": "^3.0.4",
     "eslint-loader": "2.1.1",
@@ -122,7 +121,12 @@
       "react-app"
     ],
     "plugins": [
-      [ "@babel/plugin-proposal-decorators", { "legacy": true } ]
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
     ]
   },
   "devDependencies": {

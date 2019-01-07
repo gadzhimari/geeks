@@ -1,0 +1,153 @@
+@import '../../styles/_vars.scss';
+
+$root: '.Carousel';
+
+#{$root} {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &.active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+
+  &.moved {
+    a {
+      pointer-events: none;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto !important;
+  }
+}
+
+.item {
+  background: #fafafa;
+  display: flex;
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: 38px !important;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  transform: scale(1);
+  transition: opacity 0s, transform .3s, width .2s;
+  opacity: 1;
+
+  &:hover {
+    z-index: 1;
+  }
+
+  &.hide {
+    width: 0 !important;
+    opacity: 0;
+    margin-bottom: 0 !important;
+    height: 0 !important;
+  }
+
+  &.showed {
+    transition: opacity .7s, transform .7s, width .1s;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 170px;
+    transition: transform .5s;
+    outline: none;
+  }
+
+  .item--image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+.item--name {
+  margin-bottom: 7px;
+  font-size: 26px;
+  letter-spacing: -0.05em;
+}
+
+.item--info {
+  padding: 14px 0 0 0;
+}
+
+.item--category {
+  font-size: 10px;
+  letter-spacing: -0.071em;
+}
+
+.item:first-child { margin-right: 0px !important;}
+.item:last-child { margin-left: 0px !important;}
+
+@media screen and (min-width: $breakpoint-m) {
+  #{$root} {
+    &__wrapper {
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  .item {
+    width: 50% !important;
+    margin-bottom: 58px !important;
+
+    a {
+      height: 173px;
+
+      &:hover {
+        z-index: 1;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .item--info {
+    padding: 32px 0 0;
+  }
+
+  .item--name {
+    margin-bottom: 15px;
+  }
+
+  .item--category {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-l) {
+  #{$root} {
+    height: 420px;
+
+    &__wrapper {
+      flex-wrap: nowrap;
+      height: auto !important;
+    }
+  }
+
+  .item {
+    width: 288px !important;
+    height: 162px !important;
+
+    a {
+      height: 100%;
+    }
+  }
+
+  .item--info {
+    padding: 76px 0 0 30px;
+  }
+
+  .item--name {
+    margin-bottom: 42px;
+  }
+}

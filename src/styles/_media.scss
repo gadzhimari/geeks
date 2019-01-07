@@ -1,3 +1,20 @@
+.block-subtitle {
+  h1 {
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  &.black {
+    width: 141px;
+    height: 38px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
     // GENERAL
     .menu-top {
@@ -221,35 +238,6 @@
         transform: none !important;
     }
 
-    // GAMES
-    .cWrapper {
-        width: 100% !important;
-        height: auto !important;
-        flex-wrap: wrap;
-    }
-
-    .carousel {
-        height: auto !important;
-    }
-
-    .item {
-        width: 50% !important;
-        height: auto !important;
-        margin-bottom: 55px !important;
-
-        a {
-            height: 170px;
-        }
-    }
-
-    .item--info {
-        padding: 30px 0 0 0;
-    }
-
-    .item--name {
-        margin-bottom: 13px;
-    }
-
     // GAME
     .hero-container {
         max-width: 100%;
@@ -419,20 +407,6 @@
     .contact-item h3 {
         font-size: 42px;
         margin-bottom: 32px;
-    }
-
-    // GAMES
-    .slider-games--header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .slider-games--filter {
-        margin-bottom: 40px;
-    }
-
-    .item {
-        width: 100% !important;
     }
 
     // GAME
