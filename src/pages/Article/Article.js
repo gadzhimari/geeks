@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
-import { Posts } from '../api';
-import { Post } from '../components';
+import { Posts } from '../../api';
+import { Post } from '../../components';
 
 class Article extends Component {
   state = {
