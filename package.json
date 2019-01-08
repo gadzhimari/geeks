@@ -53,6 +53,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-slick": "^0.23.2",
+    "react-transition-group": "^2.5.2",
     "resolve": "1.8.1",
     "showdown": "^1.8.7",
     "slick-carousel": "^1.8.1",

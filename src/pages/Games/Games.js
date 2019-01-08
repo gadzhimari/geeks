@@ -106,7 +106,7 @@ class Games extends Component {
       <div className={cn('header')}>
         <div className="container">
           <div className="row">
-            <div className="col-16 offset-2 col-l-12 offset-4">
+            <div className="col-16 offset-2 col-l-12 offset-l-4">
               <div className={cn('headerWrapper')}>
                 <h1 className={cn('title')}>Games</h1>
                 <div className={cn('filter')}>

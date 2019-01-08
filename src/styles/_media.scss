@@ -280,14 +280,6 @@
         text-align: center;
         width: 100%;
     }
-
-    // outsource
-    .outsource {
-        .item {
-            height: 216px !important;
-            margin-bottom: 0 !important;
-        }
-    }
 }
 
 @media only screen and (max-width: 414px) {
@@ -508,19 +500,5 @@
         .block-subtitle.black {
             margin-bottom: 50px;
         }
-    }
-
-    // OUTSOURCE
-    .slider-games--filter {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 0;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .category-switch {
-        margin: 0 0 20px;
-        width: 50%;
     }
 }

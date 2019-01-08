@@ -26,6 +26,7 @@ class PostItem extends Component {
               <img
                 src={DOMAIN_URL + post.article_featured_image.url}
                 className={cn('image')}
+                alt=""
               />
             </div>
           )}
