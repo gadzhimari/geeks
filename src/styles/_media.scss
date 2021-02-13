@@ -1,42 +1,22 @@
+.block-subtitle {
+  h1 {
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  &.black {
+    width: 141px;
+    height: 38px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
     // GENERAL
-    .app-content>div>.container {
-        padding: 0 75px;
-    }
-
-    header {
-        position: fixed;
-        height: 100vh;
-        width: 100%;
-        opacity: 0;
-        z-index: -1;
-        padding: 0;
-        top: 0;
-        left: 0;
-        background-color: #fafafa;
-
-        .container {
-            padding: 0 75px;
-            height: 100%;
-        }
-    }
-
-    .menu-top, .nav--left, .nav--right {
-        flex-direction: column;
-        width: 100%;
-        align-items: flex-start;
-    }
-
-    .nav--left, .nav--right {
-        max-width: 300px;
-        text-align: left;
-        margin: 0 auto;
-    }
-
-    .nav--center {
-        display: none;
-    }
-
     .menu-top {
         padding-top: 50px;
         padding-bottom: 50px;
@@ -187,22 +167,6 @@
         }
     }
 
-    .skills-description {
-        .article--list > div {
-            padding-left: 130px;
-        }
-
-        .article--list span {
-            left: 0;
-        }
-
-        .article--list {
-            border-bottom: 3px solid;
-            border-top: 3px solid;
-            padding: 60px 0;
-        }
-    }
-
     .info--name {
         margin-bottom: 40px;
     }
@@ -274,35 +238,6 @@
         transform: none !important;
     }
 
-    // GAMES
-    .cWrapper {
-        width: 100% !important;
-        height: auto !important;
-        flex-wrap: wrap;
-    }
-
-    .carousel {
-        height: auto !important;
-    }
-
-    .item {
-        width: 50% !important;
-        height: auto !important;
-        margin-bottom: 55px !important;
-
-        a {
-            height: 170px;
-        }
-    }
-
-    .item--info {
-        padding: 30px 0 0 0;
-    }
-
-    .item--name {
-        margin-bottom: 13px;
-    }
-
     // GAME
     .hero-container {
         max-width: 100%;
@@ -345,188 +280,10 @@
         text-align: center;
         width: 100%;
     }
-
-    // BLOG
-    .blog-container {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .blog--sidebar {
-        max-width: 100%;
-    }
-
-    .blog--list {
-        margin-top: 120px;
-    }
-
-    .blog {
-        position: relative;
-    }
-
-    .subscribe {
-        position: absolute;
-        top: 0;
-        right: 75px;
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .subscribe-form {
-        position: relative;
-        display: inline-block;
-        margin-top: 42px;
-        width: 100%;
-    }
-
-    .subscribe-form input {
-        max-width: 100%;
-    }
-
-    .block-subtitle {
-        br {
-            display: none;
-        }
-    }
-
-    .pagination-wrap {
-        padding: 0;
-        margin: 0 0 5px;
-        list-style-type: none;
-        display: flex;
-        margin-right: 0;
-        width: 100%;
-        justify-content: flex-end;
-        position: relative;
-        right: -30px;
-    }
-
-    .pagination {
-        position: absolute;
-        right: 0;
-        bottom: 90px;
-        width: 100%;
-        text-align: right;
-        padding: 0 75px;
-
-        .previous, .next {
-            position: absolute;
-            bottom: -50px;
-        }
-
-        li:first-child {
-            margin-left: -150px;
-            margin-right: 0;
-        }
-
-        li:last-child {
-            margin-right: 0;
-            margin-left: 0;
-            bottom: 3px;
-            right: 37px;
-        }
-    }
-
-    .blog--footer {
-        height: 100px;
-    }
-
-    // ARTICLE
-    .article {
-        .article-title  {
-            max-width: 365px;
-        }
-
-        .article--list {
-            margin-left: 60px;
-        }
-
-        .article-container {
-            flex-direction: column;
-        }
-
-        .article .article__information {
-            margin-bottom: 60px;
-        }
-
-        .article--sidebar {
-            margin-bottom: 60px;
-            max-width: 230px;
-        }
-
-        .article--content {
-            padding-left: 70px;
-        }
-
-        .article--description {
-            margin-left: 60px;
-        }
-
-        .article--content {
-            order: 1;
-        }
-
-        .article--sidebar.bottom {
-            order: 2;
-            align-items: flex-end;
-            flex-direction: row;
-            max-width: 100%;
-            margin-bottom: 0;
-            margin-top: 80px;
-
-            .block--social {
-                flex-direction: row;
-
-                a {
-                    margin-left: 40px;
-                }
-            }
-
-            .block-subtitle {
-                line-height: 1;
-                margin-right: 120px;
-            }
-        }
-
-        .article--next {
-            position: relative;
-
-            a span {
-                margin-right: 0;
-            }
-
-            svg {
-                bottom: -70px;
-                position: absolute;
-                right: 0;
-            }
-        }
-
-
-        .article--footer .container--entry {
-            padding-bottom: 50px;
-        }
-
-        .article--footer {
-            padding: 0 75px;
-        }
-    }
-
-    // outsource
-    .outsource {
-        .item {
-            height: 216px !important;
-            margin-bottom: 0 !important;
-        }
-    }
 }
 
 @media only screen and (max-width: 414px) {
     // GENERAL
-    .app-content > div > .container {
-        padding: 0 35px;
-    }
-
     // MENU
     .menu-top a {
         font-size: 26px;
@@ -538,10 +295,6 @@
 
     header .container {
         padding: 0 35px;
-    }
-
-    .nav--left, .nav--right {
-        max-width: 150px;
     }
 
     .slide--text {
@@ -584,10 +337,6 @@
         margin-top: 2px;
     }
 
-    .skills-description .article--list {
-        padding: 30px 0;
-    }
-
     #member-popup .block-title {
         margin-top: 60px;
     }
@@ -628,14 +377,6 @@
         transform: none;
     }
 
-    .article--list {
-        font-size: 16px;
-    }
-
-    .skills-description .article--list > div {
-        padding-left: 60px;
-    }
-
     .experience--time {
         max-width: 105px;
         text-align: right;
@@ -644,16 +385,6 @@
     .experience--name {
         font-size: 18px;
         line-height: 1;
-    }
-
-    .popup-software {
-        .article--list {
-            font-size: 18px;
-
-            div {
-                margin-bottom: -6px;
-            }
-        }
     }
 
     // CONTACT
@@ -668,20 +399,6 @@
     .contact-item h3 {
         font-size: 42px;
         margin-bottom: 32px;
-    }
-
-    // GAMES
-    .slider-games--header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .slider-games--filter {
-        margin-bottom: 40px;
-    }
-
-    .item {
-        width: 100% !important;
     }
 
     // GAME
@@ -739,19 +456,11 @@
     }
 
     // BLOG
-    .subscribe {
-        top: 76px;
-    }
-
-    .subscribe-form {
-        margin-top: 20px;
-    }
-
     .blog--list {
         margin-top: 150px;
     }
 
-    .article--header span {
+    .article--header time {
         position: relative;
         left: 0;
         top: 0;
@@ -782,94 +491,14 @@
         max-width: 225px;
     }
 
-    .subscribe {
-        left: 35px;
-        right: auto;
-    }
-
     // ARTICLE
-
     .article {
-        .article--content {
-        padding-left: 0;
-        }
-
-        .article--description {
-            margin-left: 0;
-        }
-
-        .article__information {
-            margin-bottom: 40px;
-            margin-top: 0;
-        }
-
         p {
             max-width: 100%;
-        }
-
-        .footer--wrap {
-            flex-direction: column;
-            align-items: center;
         }
 
         .block-subtitle.black {
             margin-bottom: 50px;
         }
-
-        .article--next {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .article--next a span {
-            font-size: 18px;
-            line-height: 19px;
-            max-width: 100%;
-        }
-
-        .article--sidebar.bottom .block-subtitle {
-            line-height: 1;
-            margin-right: 0;
-            font-size: 18px;
-        }
-
-        .article--sidebar.bottom .block--social a {
-            margin-left: 28px;
-            font-size: 10px;
-        }
-
-        .article--sidebar.bottom {
-            justify-content: space-between;
-            margin-top: 32px;
-        }
-
-        .article-title {
-            font-size: 42px;
-            line-height: 39px;
-        }
-    }
-
-    .app-content .container {
-        padding: 0;
-    }
-
-    .article .article--footer {
-        padding: 0 35px;
-    }
-
-    // OUTSOURCE
-
-    .slider-games--filter {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 0;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .category-switch {
-        margin: 0 0 20px;
-        width: 50%;
     }
 }

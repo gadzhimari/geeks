@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
@@ -322,11 +320,17 @@ module.exports = {
           },
           {
             test: [/\.scss$/],
-            use: [
-              "style-loader", // creates style nodes from JS strings
-              "css-loader", // translates CSS into CommonJS
-              "sass-loader" // compiles Sass to CSS
-            ]
+            use: [{
+              loader: "style-loader"
+            }, {
+              loader: "css-loader", options: {
+                sourceMap: true
+              }
+            }, {
+              loader: "sass-loader", options: {
+                sourceMap: true
+              }
+            }]
           },
         ],
       },

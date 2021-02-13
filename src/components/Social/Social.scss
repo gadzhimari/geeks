@@ -1,0 +1,65 @@
+@import '../../styles/_vars.scss';
+
+$root: '.Social';
+
+#{$root} {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 44px;
+
+  &__title {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: -0.005em;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 190px;
+  }
+
+  &__item {
+    display: inline-block;
+    font-size: 9px;
+    line-height: 19px;
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+@media screen and (min-width: $breakpoint-m) {
+  #{$root} {
+    margin-top: 0;
+
+    &__list {
+      width: 250px;
+    }
+
+    &__title {
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    &__item {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-l) {
+  #{$root} {
+    display: block;
+
+    &__list {
+      flex-direction: column;
+      width: auto;
+      justify-content: flex-start;
+    }
+  }
+}

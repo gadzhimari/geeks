@@ -1,0 +1,9 @@
+@function calc-width($size, $columns: $grid-columns) {
+  $value: percentage($size / $columns);
+  @return $value;
+}
+
+@function calc-width-in-px($size, $columns: $grid-columns) {
+  $value: $container-width / $columns * $size;
+  @return $value;
+}

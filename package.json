@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
+    "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -14,11 +15,11 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
+    "cn-decorator": "^2.1.0",
     "css-loader": "1.0.0",
-    "dateformat": "^3.0.3",
+    "date-fns": "^1.30.1",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
-    "dragscroll": "0.0.8",
     "eslint": "5.6.0",
     "eslint-config-react-app": "^3.0.4",
     "eslint-loader": "2.1.1",
@@ -33,7 +34,6 @@
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
-    "jquery": "^3.3.1",
     "magnific-popup": "^1.1.0",
     "mini-css-extract-plugin": "0.4.3",
     "optimize-css-assets-webpack-plugin": "5.0.1",
@@ -52,6 +52,8 @@
     "react-pose": "^3.3.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "react-slick": "^0.23.2",
+    "react-transition-group": "^2.5.2",
     "resolve": "1.8.1",
     "showdown": "^1.8.7",
     "slick-carousel": "^1.8.1",
@@ -59,7 +61,7 @@
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
     "webpack": "4.19.1",
-    "webpack-dev-server": "3.1.9",
+    "webpack-dev-server": "^3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.2"
   },
@@ -67,7 +69,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "build-css": "node-sass src/styles/ -o src/"
+    "build-css": "node-sass src/styles/ -o src/",
+    "precommit": "pretty-quick --staged"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -117,10 +120,23 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.2.3",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "node-sass": "^4.9.4",
+    "prettier": "^1.15.3",
+    "pretty-quick": "^1.8.0",
     "sass-loader": "^7.1.0"
   }
 }

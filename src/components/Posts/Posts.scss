@@ -1,0 +1,13 @@
+@import '../../styles/_vars.scss';
+
+$root: '.Posts';
+
+#{$root} {
+  margin-top: 36px;
+}
+
+@media screen and (min-width: $breakpoint-m) {
+  #{$root} {
+    margin-top: 56px;
+  }
+}

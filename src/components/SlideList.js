@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import posed from 'react-pose';
-import Config from '../config';
+import { DOMAIN_URL } from '../config';
+import { Slides } from '../api';
 
 class SlideList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      products: []
-    }
-  }
+  state = {
+    loading: true,
+    products: [],
+  };
 
   async componentDidMount() {
-    let response = await fetch(`${Config.host}/slides`);
-    if (!response.ok) {
-      return
-    }
+    const { data: slides } = await Slides.getSlides();
 
-    let slides = await response.json()
-    this.setState({ loading: false, slides: slides })
+    this.setState({ loading: false, slides: slides });
   }
 
   render() {
@@ -34,7 +27,10 @@ class SlideList extends Component {
                 <div className="SlideList-slide" key={slide.id}>
                   <Link to={`/slides/${slide.id}`}>
                     <h3>{slide.title}</h3>
-                    <img src={`${Config.host + slide.image_main.url}`} alt={slide.title} />
+                    <img
+                      src={`${DOMAIN_URL + slide.image_main.url}`}
+                      alt={slide.title}
+                    />
                   </Link>
                 </div>
               );
@@ -44,7 +40,7 @@ class SlideList extends Component {
       );
     }
 
-    return (<h2 className="SlideList-title">Waiting for API...</h2>);
+    return <h2 className="SlideList-title">Waiting for API...</h2>;
   }
 }
 

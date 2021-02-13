@@ -1,32 +1,26 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Config from '../config';
+import { Link } from 'react-router-dom';
+import { Games } from '../api';
 
 class GameList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      products: []
-    }
-  }
+  state = {
+    loading: true,
+    products: [],
+  };
 
   async componentDidMount() {
-    let response = await fetch(`${Config.host}/games`);
-    if (!response.ok) {
-      return
-    }
+    const { data: games } = await Games.getGames();
 
-    let games = await response.json()
-    this.setState({ loading: false, games: games })
+    this.setState({ loading: false, games });
   }
 
   render() {
     if (!this.state.loading) {
       return (
         <div className="GameList">
-          <h2 className="GameList-title">Available Games ({this.state.games.length})</h2>
+          <h2 className="GameList-title">
+            Available Games ({this.state.games.length})
+          </h2>
           <div className="GameList-container">
             {this.state.games.map((game, index) => {
               return (
@@ -42,7 +36,7 @@ class GameList extends Component {
       );
     }
 
-    return (<h2 className="GameList-title">Waiting for API...</h2>);
+    return <h2 className="GameList-title">Waiting for API...</h2>;
   }
 }
 
